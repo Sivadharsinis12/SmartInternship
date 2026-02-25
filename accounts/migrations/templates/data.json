@@ -1,0 +1,86 @@
+{
+  "stats": {
+    "totalRecommendations": 42,
+    "internshipsMatched": 12,
+    "coursesSuggested": 28,
+    "skillGaps": 6
+  },
+
+  "internships": [
+    {
+      "title": "Frontend Developer Intern",
+      "skills": "React, Tailwind, TypeScript",
+      "company": "GlobalTech Inc.",
+      "match": 92
+    },
+    {
+      "title": "Data Science Intern",
+      "skills": "Python, Pandas, SQL",
+      "company": "Analytics AI",
+      "match": 78
+    },
+    {
+      "title": "UI/UX Design Trainee",
+      "skills": "Figma, Adobe XD, Research",
+      "company": "Creative Flow",
+      "match": 65
+    }
+  ],
+
+  "skillGaps": [
+    { "skill": "Python Programming", "yourLevel": 60, "required": 90 },
+    { "skill": "React Framework", "yourLevel": 85, "required": 80 },
+    { "skill": "Database Design", "yourLevel": 45, "required": 75 }
+  ],
+
+  "courses": [
+    {
+      "name": "Advanced Python for Data Science",
+      "platform": "Coursera",
+      "skills": ["Python", "NumPy"],
+      "duration": "12 Weeks"
+    },
+    {
+      "name": "The Ultimate SQL Bootcamp 2024",
+      "platform": "Udemy",
+      "skills": ["SQL", "Postgres"],
+      "duration": "24 Hours"
+    },
+    {
+      "name": "Modern System Design with AWS",
+      "platform": "LinkedIn Learning",
+      "skills": ["Architecture", "Cloud"],
+      "duration": "8 Weeks"
+    }
+  ],
+
+  "history": [
+    {
+      "id": "#CR-4501",
+      "name": "Senior Product Design Intern",
+      "category": "Internship",
+      "date": "Oct 24, 2026",
+      "score": 98,
+      "status": "Applied",
+      "skills": ["UI/UX Design", "Product Strategy"]
+    },
+    {
+      "id": "#CR-4482",
+      "name": "Advanced React & Tailwind Patterns",
+      "category": "Course",
+      "date": "Oct 21, 2026",
+      "score": 92,
+      "status": "Saved",
+      "skills": ["React", "Tailwind"]
+    },
+    {
+      "id": "#CR-4470",
+      "name": "Entry Level UX Researcher",
+      "category": "Internship",
+      "date": "Oct 18, 2026",
+      "score": 85,
+      "status": "Ignored",
+      "skills": ["UX Research"]
+    }
+  ]
+}

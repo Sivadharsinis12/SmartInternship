@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Smart Internship</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f2f2f2;
+}
+
+.login-container{
+    width:400px;
+    background:#ffffff;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+.login-container h2{
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:14px;
+    color:#666;
+    margin-bottom:25px;
+}
+
+select, input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+
+input:focus, select:focus{
+    outline:none;
+    border-color:#111;
+}
+
+.password-wrapper{
+    position:relative;
+}
+
+.password-wrapper span{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+}
+
+.remember{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    margin-bottom:15px;
+}
+.remember-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+.remember-container label {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#111;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+#errorMsg{
+    color:red;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.footer-text{
+    margin-top:15px;
+    font-size:13px;
+    color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <h2>Smart Internship & Course Recommendation Platform</h2>
+    <div class="subtitle">Empowering your career journey with AI</div>
+
+    <form id="loginForm">
+
+        <select id="role">
+            <option>Student</option>
+        </select>
+
+        <input type="text" id="email" placeholder="Email or Username" required>
+
+        <div class="password-wrapper">
+            <input type="password" id="password" placeholder="Password" required>
+            <span onclick="togglePassword()">👁</span>
+        </div>
+
+        <div class="remember-container">
+    <input type="checkbox" id="remember">
+    <label for="remember">Remember me</label>
+</div>
+
+        <p id="errorMsg"></p>
+
+        <button type="submit">Sign In</button>
+
+    </form>
+
+    <div class="footer-text">
+        New to the platform? Create an account
+    </div>
+</div>
+
+<script>
+
+// Demo user for college project
+const users = [
+    {
+        role: "Student",
+        email: "student@gmail.com",
+        password: "123456"
+    }
+];
+
+// Toggle password visibility
+function togglePassword(){
+    const pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+
+// Login form submit
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const role = document.getElementById("role").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const remember = document.getElementById("rememberMe").checked;
+    const errorMsg = document.getElementById("errorMsg");
+
+    const validUser = users.find(user =>
+        user.role === role &&
+        user.email === email &&
+        user.password === password
+    );
+
+    if(validUser){
+        if(remember){
+            localStorage.setItem("loggedInUser", email);
+        }
+        window.location.href = "dashboard.html";
+    } else {
+        errorMsg.textContent = "Invalid Email or Password";
+    }
+});
+
+// Auto login if remembered
+window.onload = function(){
+    const loggedIn = localStorage.getItem("loggedInUser");
+    if(loggedIn){
+        window.location.href = "dashboard.html";
+    }
+};
+
+</script>
+
+</body>
+</html>

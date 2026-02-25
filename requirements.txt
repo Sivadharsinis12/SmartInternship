@@ -1,0 +1,2 @@
+No backend dependencies.
+Frontend project using HTML, CSS, JavaScript.

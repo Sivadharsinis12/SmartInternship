@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Internship</title>
+
+<style>
+
+/* ========== GLOBAL STYLES ========== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    color: #111;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ========== NAVBAR ========== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.login-btn {
+    padding: 8px 18px;
+    background: #111;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* ========== HERO SECTION ========== */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 0;
+    gap: 50px;
+}
+
+.hero-left {
+    flex: 1;
+}
+
+.tag {
+    font-size: 12px;
+    background: #e9e9e9;
+    padding: 6px 12px;
+    display: inline-block;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-left h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-left p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.primary-btn {
+    padding: 12px 22px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.secondary-btn {
+    padding: 12px 22px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ========== HERO IMAGE CARD ========== */
+
+.hero-right {
+    flex: 1;
+    position: relative;
+}
+
+.hero-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.growth-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-size: 14px;
+}
+
+/* ========== FEATURES SECTION ========== */
+
+.features {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.features h2 {
+    margin-bottom: 10px;
+}
+
+.features p {
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.feature-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    width: 300px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.feature-card h4 {
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ========== CTA SECTION ========== */
+
+.cta {
+    background: #111;
+    color: white;
+    padding: 60px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 80px auto;
+    max-width: 1000px;
+}
+
+.cta button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/* ========== FOOTER ========== */
+
+footer {
+    padding: 40px 0;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+    margin-top: 80px;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media(max-width: 900px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .feature-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">🎓 Smart Internship</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">How It Works</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-left">
+            <div class="tag">AI-DRIVEN CAREER PATH</div>
+            <h1>Discover the Right Internship and Courses for Your Career</h1>
+            <p>
+                Unlock your potential with AI-powered recommendations tailored 
+                to your unique skills, interests, and professional aspirations.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="goToLogin()">Get Started</button>
+                <button class="secondary-btn">Explore Opportunities</button>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" class="hero-img">
+            <div class="growth-card">
+                <strong>Growth Track</strong><br>
+                92% Match with your dream role
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <h2>Our Key Features</h2>
+        <p>Unlock your professional potential with advanced AI tools.</p>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>AI Skill Analysis</h4>
+                <p>Comprehensive analysis of your current skills and improvement areas.</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>Internship Matching</h4>
+                <p>Smart matching based on your academic profile and goals.</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>Course Recommendations</h4>
+                <p>Recommended courses to bridge skill gaps instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Ready to Start Your Journey?</h2>
+        <p>Join thousands of students who found their perfect internship.</p>
+        <button onclick="goToLogin()">Sign Up Now</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2024 Smart Internship Platform. All rights reserved.
+    </footer>
+
+</div>
+
+<script>
+
+/* Navigation JS */
+function goToLogin() {
+    window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>
