@@ -111,6 +111,21 @@ button:hover{
     font-size:13px;
     color:#777;
 }
+.remember-container {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.remember-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;   /* controls spacing */
+    font-size: 14px;
+}
+
+.remember-label input {
+    margin: 0;   /* remove default spacing */
+}
 </style>
 </head>
 
@@ -173,7 +188,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e){
     const role = document.getElementById("role").value;
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
-    const remember = document.getElementById("rememberMe").checked;
+    const remember = document.getElementById("remember").checked;
     const errorMsg = document.getElementById("errorMsg");
 
     const validUser = users.find(user =>
