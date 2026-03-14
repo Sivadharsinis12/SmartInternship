@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Profile</title>
+<link rel="stylesheet" href="student_profile.css">
+<style>body{
+font-family:Arial;
+margin:0;
+background:#f5f7fb;
+}
+
+.container{
+display:flex;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:230px;
+background:#1e293b;
+color:white;
+height:100vh;
+padding:20px;
+}
+
+.logo{
+margin-bottom:30px;
+}
+
+.menu{
+list-style:none;
+padding:0;
+}
+
+.menu li{
+padding:12px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.menu li:hover{
+background:#979faa;
+}
+
+.active{
+background:#141517;
+}
+
+
+/* MAIN */
+
+.main{
+flex:1;
+padding:30px;
+}
+
+.sub{
+color:gray;
+margin-bottom:20px;
+}
+
+.content{
+display:flex;
+gap:20px;
+}
+
+/* FORM */
+
+.form-section{
+flex:3;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+box-shadow:0 2px 5px rgba(0,0,0,0.05);
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+input,select{
+width:100%;
+padding:10px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+padding:10px 15px;
+border:none;
+background:#313236;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.saveBtn{
+margin-top:10px;
+}
+
+/* SKILLS */
+
+#skillList{
+margin-top:10px;
+}
+
+.skill{
+display:inline-block;
+background:#e2e8f0;
+padding:6px 10px;
+border-radius:20px;
+margin:5px;
+}
+
+/* RIGHT PANEL */
+
+.side-info{
+flex:1;
+}
+
+.strength-card{
+background:white;
+padding:20px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 2px 5px rgba(0,0,0,0.05);
+}
+
+.circle{
+width:120px;
+height:120px;
+border-radius:50%;
+border:10px solid #252931;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+font-size:24px;
+}</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h2 class="logo">EduMatch</h2>
+
+<ul class="menu">
+<li>Dashboard</li>
+<li class="active">My Profile</li>
+<li>Recommended Internships</li>
+</ul>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+<h1>My Placement Profile</h1>
+<p class="sub">Complete your profile to unlock internship opportunities.</p>
+
+<div class="content">
+
+<!-- LEFT SECTION -->
+<div class="form-section">
+
+<!-- PERSONAL -->
+<div class="card">
+
+<h3>Personal Information</h3>
+
+<div class="grid">
+
+<div>
+<label>Full Name</label>
+<input type="text" id="name">
+</div>
+
+<div>
+<label>Email Address</label>
+<input type="email" id="email">
+</div>
+
+<div>
+<label>Phone Number</label>
+<input type="text" id="phone">
+</div>
+
+<div>
+<label>LinkedIn URL</label>
+<input type="text" id="linkedin">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ACADEMIC -->
+<div class="card">
+
+<h3>Academic Details</h3>
+
+<div class="grid">
+
+<div>
+<label>Department</label>
+<input type="text" id="dept">
+</div>
+
+<div>
+<label>Current CGPA</label>
+<input type="text" id="cgpa">
+</div>
+
+<div>
+<label>Active Backlogs</label>
+<input type="number" id="backlogs">
+</div>
+
+<div>
+<label>Graduation Year</label>
+<select id="year">
+<option>2024</option>
+<option>2025</option>
+<option>2026</option>
+</select>
+</div>
+<div>
+<label>Course Completed</label>
+<input type="text" id="cgpa">
+</div>
+
+<div>
+<label>Course Domain</label>
+<input type="number" id="backlogs">
+</div>
+</div>
+
+</div>
+
+
+<!-- SKILLS -->
+<div class="card">
+
+<h3>Skills & Expertise</h3>
+
+<input type="text" id="skillInput" placeholder="Add a skill">
+
+<button onclick="addSkill()">Add Skill</button>
+
+<div id="skillList"></div>
+
+</div>
+
+
+<button class="saveBtn" onclick="saveProfile()">Save Profile</button>
+<button class="saveBtn" onclick="recommendInternship()">Recommend Internship</button>
+</div>
+
+
+<!-- RIGHT PANEL -->
+<div class="side-info">
+
+<div class="strength-card">
+
+<h3>Profile Strength</h3>
+
+<div class="circle">
+<span id="percent">0%</span>
+</div>
+
+<p>Complete your profile to increase score.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="student_profile.js"></script>
+<script>let skills=[];
+
+function addSkill(){
+
+let input=document.getElementById("skillInput");
+let value=input.value;
+
+if(value=="") return;
+
+skills.push(value);
+
+input.value="";
+
+displaySkills();
+updateStrength();
+}
+
+function displaySkills(){
+
+let container=document.getElementById("skillList");
+container.innerHTML="";
+
+skills.forEach(skill=>{
+
+let span=document.createElement("span");
+span.className="skill";
+span.innerText=skill;
+
+container.appendChild(span);
+
+});
+}
+
+function updateStrength(){
+
+let filled=0;
+
+if(document.getElementById("name").value!="") filled++;
+if(document.getElementById("email").value!="") filled++;
+if(document.getElementById("phone").value!="") filled++;
+if(document.getElementById("linkedin").value!="") filled++;
+if(document.getElementById("dept").value!="") filled++;
+if(document.getElementById("cgpa").value!="") filled++;
+if(skills.length>0) filled++;
+
+let percent=Math.floor((filled/7)*100);
+
+document.getElementById("percent").innerText=percent+"%";
+}
+
+function saveProfile(){
+
+updateStrength();
+
+alert("Profile Saved Successfully!");
+
+}</script>
+</body>
+</html>
